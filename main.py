@@ -10,85 +10,8 @@ WARNING: Package :mod:`tethne` has undergone major revisions since this code was
 written; should use tethne-0.4.2-alpha at the latest.
 """
 
-import tethne.readers as rd
-import tethne.writers as wr
-import tethne.analyze as az
-from tethne.data import DataCollection, GraphCollection
-import networkx as nx
-import os
-from collections import Counter
-import matplotlib.pyplot as plt
-import scipy.stats as stats
-import matplotlib.cm as cm
-
-from nltk.corpus import stopwords
-sw = stopwords.words()
-
-c = cm.get_cmap(name='Set1')
 
 
-
-# Load JSTOR DfR datasets
-unigrams = {}
-bigrams = {}
-trigrams = {}
-datapath = "/Users/erickpeirson/Dropbox/Digital Hps/Files/data"
-for directory in os.listdir(datapath):
-    if directory == '.DS_Store':
-        continue
-    unigrams.update(rd.dfr.ngrams(datapath + "/" + directory, 'uni'))
-    bigrams.update(rd.dfr.ngrams(datapath + "/" + directory, 'bi'))
-    trigrams.update(rd.dfr.ngrams(datapath + "/" + directory, 'tri'))    
-
-papers = rd.dfr.from_dir(datapath)    # Metadata for papers in this dataset.
-
-# This makes it faster to search for tokens later on.
-types = {1: {d:{k:v for k,v in vals} for d,vals in unigrams.iteritems()},
-         2: {d:{k:v for k,v in vals} for d,vals in bigrams.iteritems()},
-         3: {d:{k:v for k,v in vals} for d,vals in trigrams.iteritems()}}
-
-# Define terms of interest.
-explananda = [  #('polygyny',), 
-                ('division of labor',), 
-                ('hierarchy','hierarchies','hierarchical'),                               
-                #('social dominance',),
-                ('dominance',)]
-
-explanantes = [ ('ovaries', 'ovary'), 
-                ('hormones', 'hormone', 'hormonal'), 
-                ('endocrine',), 
-                ('ontogeny', 'ontogenesis', 'ontogenetic', 'developmental' ),
-                ('relatedness',),                 
-                ('fitness',), 
-                ('cost','costs',), 
-                ('benefit', 'benefits')]
-#                ('embryonic development',)]
-
-# For convenience, index terms by their tokens.
-e_index = {}
-for ex in explananda:
-    e_index[ex[0]] = 'explananda'    
-for es in explanantes:
-    e_index[es[0]] = 'explanantes'
-
-# Some globals.
-N_s = len(explanantes)  # Number of explanantes.
-N_m = len(explananda)   # Number of explananda.
-N_d = len(D.papers())   # Number of documents in corpus.
-T = range(1872, 2011)   # Can narrow this down later.
-
-# Ordered vector of document counts over time for the corpus as a whole.
-N = [ len(D.axes['date'][d]) for d in sorted(T) ]
-
-# So that we use indices consistently across all matrices...
-p_lookup = {}   # Paper (str[doi]) : index (int) hash.
-t_lookup = {}   # Term (str) : index (int) hash.
-
-em_indices = [ t_lookup[em[0]] for em in explananda ]
-
-# Organize dataset by time (4-year sliding time-window)
-D = DataCollection(papers, index_by='doi')
-D.slice('date', method='time_window', window_size=1, step_size=1)
 
 def build_occurrence_matrix(D, types):
     """
@@ -267,7 +190,7 @@ def calculate_f_EM(D, a):
                 
     return f_EM
 
-def plot_f_EM(f_EM)
+def plot_f_EM(f_EM):
     """
     Generates a bar-chart showing the number of documents in each time-slice,
     and the number of EM-responding documents in each time-slice.
@@ -565,7 +488,7 @@ def plot_PMI(nPMI, osPMI):
     """
     fig = plt.figure(figsize=(15,20))
     
-        osPMI_label = r'$p(es| em) = \frac{f_{es}}{N_{em}}$'
+    osPMI_label = r'$p(es| em) = \frac{f_{es}}{N_{em}}$'
     
     for i_s in xrange(N_s):
         for i_m in xrange(N_m):
@@ -710,24 +633,24 @@ def ols_em(co_f_N):
             regress = stats.linregress(x[0:q],y[0:q])
             slope, intercept, r_value, p_value, std_err = regress        
             fit_fn = [ ( slope * xi ) + intercept for xi in x[0:q] ]   
-            label = r'$r^2={0}$, $p={1}$'.format(round(r_value**2, 4)     
+            label = r'$r^2={0}$, $p={1}$'.format(round(r_value**2, 4))
             
             # Fit OLS linear regression to second break-point.
             regress2 = stats.linregress(x[q:z],y[q:z])        
             slope2, intercept2, r_value2, p_value2, std_err2 = regress2
             fit_fn2 = [ ( slope2 * xi ) + intercept2 for xi in x[q:z] ]  
-            label2 = r'$r^2={0}$, $p={1}$'.format(round(r_value2**2, 4)
+            label2 = r'$r^2={0}$, $p={1}$'.format(round(r_value2**2, 4))
             
             # Fit OLS linear regression after second break-point.
             regress3 = stats.linregress(x[z:],y[z:])        
             slope3, intercept3, r_value3, p_value3, std_err3 = regress3
             fit_fn3 = [ ( slope3 * xi ) + intercept3 for xi in x[z:] ]          
-            label3 = r'$r^2={0}$, $p={1}$'.format(round(r_value3**2, 4)
+            label3 = r'$r^2={0}$, $p={1}$'.format(round(r_value3**2, 4))
             
             ax.scatter(x,y,c=t, cmap=c)
-            plt.plot(x[0:q], fit_fn, label=label, round(p_value, 4)))
-            plt.plot(x[q:z], fit_fn2, label=label2, round(p_value2, 4)))
-            plt.plot(x[z:], fit_fn3, label=label3, round(p_value3, 4)))
+            plt.plot(x[0:q], fit_fn, label=label)
+            plt.plot(x[q:z], fit_fn2, label=label2)
+            plt.plot(x[z:], fit_fn3, label=label3)
             plt.legend(loc=2, fontsize=10)       
 
             if i_m == i_s + 1:
@@ -854,3 +777,86 @@ def perform_crosscorrelation(f_es_EM_):
             
     plt.tight_layout()
     plt.show()
+
+
+if __name__ == '__main__':
+    import tethne.readers as rd
+    import tethne.writers as wr
+    import tethne.analyze as az
+    from tethne.data import DataCollection, GraphCollection
+    import networkx as nx
+    import os
+    from collections import Counter
+    import matplotlib.pyplot as plt
+    import scipy.stats as stats
+    import matplotlib.cm as cm
+
+    from nltk.corpus import stopwords
+
+    sw = stopwords.words()
+
+    c = cm.get_cmap(name='Set1')
+
+
+
+    # Load JSTOR DfR datasets
+    unigrams = {}
+    bigrams = {}
+    trigrams = {}
+    datapath = "/Users/erickpeirson/Dropbox/Digital Hps/Files/data"
+    for directory in os.listdir(datapath):
+        if directory == '.DS_Store':
+            continue
+        unigrams.update(rd.dfr.ngrams(datapath + "/" + directory, 'uni'))
+        bigrams.update(rd.dfr.ngrams(datapath + "/" + directory, 'bi'))
+        trigrams.update(rd.dfr.ngrams(datapath + "/" + directory, 'tri'))    
+
+    papers = rd.dfr.from_dir(datapath)    # Metadata for papers in this dataset.
+
+    # This makes it faster to search for tokens later on.
+    types = {1: {d:{k:v for k,v in vals} for d,vals in unigrams.iteritems()},
+             2: {d:{k:v for k,v in vals} for d,vals in bigrams.iteritems()},
+             3: {d:{k:v for k,v in vals} for d,vals in trigrams.iteritems()}}
+
+    # Define terms of interest.
+    explananda = [  #('polygyny',), 
+                    ('division of labor',), 
+                    ('hierarchy','hierarchies','hierarchical'),                               
+                    #('social dominance',),
+                    ('dominance',)]
+
+    explanantes = [ ('ovaries', 'ovary'), 
+                    ('hormones', 'hormone', 'hormonal'), 
+                    ('endocrine',), 
+                    ('ontogeny', 'ontogenesis', 'ontogenetic', 'developmental' ),
+                    ('relatedness',),                 
+                    ('fitness',), 
+                    ('cost','costs',), 
+                    ('benefit', 'benefits')]
+    #                ('embryonic development',)]
+
+    # For convenience, index terms by their tokens.
+    e_index = {}
+    for ex in explananda:
+        e_index[ex[0]] = 'explananda'    
+    for es in explanantes:
+        e_index[es[0]] = 'explanantes'
+
+    # Some globals.
+    N_s = len(explanantes)  # Number of explanantes.
+    N_m = len(explananda)   # Number of explananda.
+    N_d = len(D.papers())   # Number of documents in corpus.
+    T = range(1872, 2011)   # Can narrow this down later.
+
+    # Ordered vector of document counts over time for the corpus as a whole.
+    N = [ len(D.axes['date'][d]) for d in sorted(T) ]
+
+    # So that we use indices consistently across all matrices...
+    p_lookup = {}   # Paper (str[doi]) : index (int) hash.
+    t_lookup = {}   # Term (str) : index (int) hash.
+
+    em_indices = [ t_lookup[em[0]] for em in explananda ]
+
+    # Organize dataset by time (4-year sliding time-window)
+    D = DataCollection(papers, index_by='doi')
+    D.slice('date', method='time_window', window_size=1, step_size=1)

@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Epistemology of Polistes Wasp Societies &mdash; Epistemology of Polistes Wasp Societies 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Epistemology of Polistes Wasp Societies 0.1 documentation" href="#" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          Epistemology of Polistes Wasp Societies</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Epistemology of Polistes Wasp Societies</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/index.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="epistemology-of-polistes-wasp-societies">
+<h1>Epistemology of Polistes Wasp Societies<a class="headerlink" href="#epistemology-of-polistes-wasp-societies" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#main.build_occurrence_matrix" title="main.build_occurrence_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">main.build_occurrence_matrix</span></tt></a>(D,&nbsp;types)</td>
+<td>Generates an occurrence matrix for all (em + es) terms across the corpus.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.build_cooccurrence_matrix" title="main.build_cooccurrence_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">main.build_cooccurrence_matrix</span></tt></a>(D,&nbsp;a)</td>
+<td>Geneartes a time-variant co-occurrence matrix for all terms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.calculate_f_EM" title="main.calculate_f_EM"><tt class="xref py py-obj docutils literal"><span class="pre">main.calculate_f_EM</span></tt></a>(D,&nbsp;a)</td>
+<td>Generates a vector over time for the number of documents containing one or more explanandum terms.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.plot_f_EM" title="main.plot_f_EM"><tt class="xref py py-obj docutils literal"><span class="pre">main.plot_f_EM</span></tt></a>(f_EM)</td>
+<td>Generates a bar-chart showing the number of documents in each time-slice,</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.plot_journal_distribution" title="main.plot_journal_distribution"><tt class="xref py py-obj docutils literal"><span class="pre">main.plot_journal_distribution</span></tt></a>(D)</td>
+<td>Plots the distribution of papers over journals for the top 20 journals.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.build_EM_subcorpus" title="main.build_EM_subcorpus"><tt class="xref py py-obj docutils literal"><span class="pre">main.build_EM_subcorpus</span></tt></a>(D,&nbsp;a)</td>
+<td>Generates a list of Paper identifiers (dois) for those containing one or</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.build_f_es_EM" title="main.build_f_es_EM"><tt class="xref py py-obj docutils literal"><span class="pre">main.build_f_es_EM</span></tt></a>(D,&nbsp;a)</td>
+<td>Generates per-document frequency vectors for explanantes in the explanandum</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.plot_p_es_EM" title="main.plot_p_es_EM"><tt class="xref py py-obj docutils literal"><span class="pre">main.plot_p_es_EM</span></tt></a>(<a href="#id1"><span class="problematic" id="id2">f_es_EM_</span></a>)</td>
+<td>Plot the observed probability of each explanans term in the explanandum sub-corpus.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.plot_p_em" title="main.plot_p_em"><tt class="xref py py-obj docutils literal"><span class="pre">main.plot_p_em</span></tt></a>(co_f)</td>
+<td>Plot the observed probability of each explanandum term in the master corpus.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.calc_nPMI" title="main.calc_nPMI"><tt class="xref py py-obj docutils literal"><span class="pre">main.calc_nPMI</span></tt></a>(t_i,&nbsp;y_i,&nbsp;t)</td>
+<td>Calculates the normalized Pointwise Mutual Information for two terms</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.calc_osPMI" title="main.calc_osPMI"><tt class="xref py py-obj docutils literal"><span class="pre">main.calc_osPMI</span></tt></a>(t_i,&nbsp;y_i,&nbsp;t)</td>
+<td>Calculates the one-side PMI, which is just the MLE of p(y|t).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.calculate_PMI" title="main.calculate_PMI"><tt class="xref py py-obj docutils literal"><span class="pre">main.calculate_PMI</span></tt></a>()</td>
+<td>Generates nPMI and osPMI values for all term-pairs over time.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.plot_PMI" title="main.plot_PMI"><tt class="xref py py-obj docutils literal"><span class="pre">main.plot_PMI</span></tt></a>(nPMI,&nbsp;osPMI)</td>
+<td>Plots nPMI and osPMI for all term-pairs over time.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.plot_PMI_es" title="main.plot_PMI_es"><tt class="xref py py-obj docutils literal"><span class="pre">main.plot_PMI_es</span></tt></a>(nPMI,&nbsp;osPMI)</td>
+<td>Similar to <a class="reference internal" href="#main.plot_PMI" title="main.plot_PMI"><tt class="xref py py-func docutils literal"><span class="pre">plot_PMI()</span></tt></a> except that only the top half of the matrix</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.plot_PMI_em" title="main.plot_PMI_em"><tt class="xref py py-obj docutils literal"><span class="pre">main.plot_PMI_em</span></tt></a>(nPMI,&nbsp;osPMI)</td>
+<td>Similar to <a class="reference internal" href="#main.plot_PMI" title="main.plot_PMI"><tt class="xref py py-func docutils literal"><span class="pre">plot_PMI()</span></tt></a> except that only the top half of the matrix</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.ols_em" title="main.ols_em"><tt class="xref py py-obj docutils literal"><span class="pre">main.ols_em</span></tt></a>(co_f_N)</td>
+<td>Generates a correlation matrix for explananda terms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#main.mc_test" title="main.mc_test"><tt class="xref py py-obj docutils literal"><span class="pre">main.mc_test</span></tt></a>(a,&nbsp;b,&nbsp;lower,&nbsp;upper)</td>
+<td>Performs a Monto Carlo simulation for cross-correlation of time-series</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#main.perform_crosscorrelation" title="main.perform_crosscorrelation"><tt class="xref py py-obj docutils literal"><span class="pre">main.perform_crosscorrelation</span></tt></a>(<a href="#id3"><span class="problematic" id="id4">f_es_EM_</span></a>)</td>
+<td>Performs cross-correlation analysis.</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-main"></span><p>Methods and workflow for analyzing English-language scientific corpus concerning
+Polistes wasps.</p>
+<p>These methods are built with the iPython Notebook environment in mind. To use
+externally, simply change all plt.show() calls to plt.savefig(), with the
+appropriate arguments.</p>
+<p>WARNING: Package <tt class="xref py py-mod docutils literal"><span class="pre">tethne</span></tt> has undergone major revisions since this code was
+written; should use tethne-0.4.2-alpha at the latest.</p>
+<dl class="function">
+<dt id="main.build_EM_subcorpus">
+<tt class="descclassname">main.</tt><tt class="descname">build_EM_subcorpus</tt><big>(</big><em>D</em>, <em>a</em><big>)</big><a class="reference internal" href="_modules/main.html#build_EM_subcorpus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.build_EM_subcorpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a list of Paper identifiers (dois) for those containing one or
+more explanandum terms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>D</strong> : <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.DataCollection</span></tt></p>
+<blockquote>
+<div><p>Contains <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.Paper</span></tt> for each N-gram vector.</p>
+</div></blockquote>
+<p><strong>a</strong> : <tt class="xref py py-class docutils literal"><span class="pre">numpy.array</span></tt></p>
+<blockquote>
+<div><p>Rows are documents, columns are terms.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>C_em</strong> : list</p>
+<blockquote class="last">
+<div><p>A list of Paper identifiers (dois) for those containing one or
+more explanandum terms.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.build_cooccurrence_matrix">
+<tt class="descclassname">main.</tt><tt class="descname">build_cooccurrence_matrix</tt><big>(</big><em>D</em>, <em>a</em><big>)</big><a class="reference internal" href="_modules/main.html#build_cooccurrence_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.build_cooccurrence_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geneartes a time-variant co-occurrence matrix for all terms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>D</strong> : <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.DataCollection</span></tt></p>
+<blockquote>
+<div><p>Contains <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.Paper</span></tt> for each N-gram vector.</p>
+</div></blockquote>
+<p><strong>a</strong> : <tt class="xref py py-class docutils literal"><span class="pre">numpy.array</span></tt></p>
+<blockquote>
+<div><p>Rows are documents, columns are terms.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>co_f</strong> : numpy.array</p>
+<blockquote>
+<div><p>Time-variant term co-occurrence matrix. Shape: ( N_s+N_m, N_s+N_m, T ).</p>
+</div></blockquote>
+<p><strong>co_f_N</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>Normalization of <cite>co_f</cite> over the number of documents in the corpus.
+Shape: ( N_s+N_m, N_s+N_m, T ).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.build_f_es_EM">
+<tt class="descclassname">main.</tt><tt class="descname">build_f_es_EM</tt><big>(</big><em>D</em>, <em>a</em><big>)</big><a class="reference internal" href="_modules/main.html#build_f_es_EM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.build_f_es_EM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates per-document frequency vectors for explanantes in the explanandum
+subcorpus, <cite>C_em</cite>, over time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>D</strong> : <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.DataCollection</span></tt></p>
+<blockquote>
+<div><p>Contains <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.Paper</span></tt> for each N-gram vector.</p>
+</div></blockquote>
+<p><strong>a</strong> : <tt class="xref py py-class docutils literal"><span class="pre">numpy.array</span></tt></p>
+<blockquote>
+<div><p>Rows are documents, columns are terms.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>f_es_EM</strong> : numpy.array</p>
+<blockquote>
+<div><p>Per-document frequency of each explanans term in the explanandum
+sub-corpus, over time. Shape: ( T, N_s ).</p>
+</div></blockquote>
+<p><strong>N_em</strong> : numpy.array</p>
+<blockquote>
+<div><p>Number of explandum-containing papers over time. Shape: ( T )</p>
+</div></blockquote>
+<p><strong>f_es_EM_</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p><cite>f_es_EM</cite> normalized on N_em. Shape: ( T, N_s ).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.build_occurrence_matrix">
+<tt class="descclassname">main.</tt><tt class="descname">build_occurrence_matrix</tt><big>(</big><em>D</em>, <em>types</em><big>)</big><a class="reference internal" href="_modules/main.html#build_occurrence_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.build_occurrence_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an occurrence matrix for all (em + es) terms across the corpus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>D</strong> : <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.DataCollection</span></tt></p>
+<blockquote>
+<div><p>Contains <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.Paper</span></tt> for each N-gram vector.</p>
+</div></blockquote>
+<p><strong>types</strong> : dict</p>
+<blockquote>
+<div><p>Contains N-indexed dictionaries of { doi : { gram : freq } }.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>a</strong> : <tt class="xref py py-class docutils literal"><span class="pre">numpy.array</span></tt></p>
+<blockquote class="last">
+<div><p>Rows are documents, columns are terms.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.calc_nPMI">
+<tt class="descclassname">main.</tt><tt class="descname">calc_nPMI</tt><big>(</big><em>t_i</em>, <em>y_i</em>, <em>t</em><big>)</big><a class="reference internal" href="_modules/main.html#calc_nPMI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.calc_nPMI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the normalized Pointwise Mutual Information for two terms
+(given by their indices, t_i and t_y) at a given time, t.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>t_i</strong> : int</p>
+<blockquote>
+<div><p>Index of term 1.</p>
+</div></blockquote>
+<p><strong>y_i</strong> : int</p>
+<blockquote>
+<div><p>Index of term 2.</p>
+</div></blockquote>
+<p><strong>t</strong> : int</p>
+<blockquote>
+<div><p>Time index.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote class="last">
+<div><p>Normalized Pointwise Mutual Information.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.calc_osPMI">
+<tt class="descclassname">main.</tt><tt class="descname">calc_osPMI</tt><big>(</big><em>t_i</em>, <em>y_i</em>, <em>t</em><big>)</big><a class="reference internal" href="_modules/main.html#calc_osPMI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.calc_osPMI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the one-side PMI, which is just the MLE of p(y|t).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>t_i</strong> : int</p>
+<blockquote>
+<div><p>Index of term 1.</p>
+</div></blockquote>
+<p><strong>y_i</strong> : int</p>
+<blockquote>
+<div><p>Index of term 2.</p>
+</div></blockquote>
+<p><strong>t</strong> : int</p>
+<blockquote>
+<div><p>Time index.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>float</strong> :</p>
+<blockquote class="last">
+<div><p>One-sided Pointwise Mutual Information.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.calculate_PMI">
+<tt class="descclassname">main.</tt><tt class="descname">calculate_PMI</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/main.html#calculate_PMI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.calculate_PMI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates nPMI and osPMI values for all term-pairs over time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>nPMI</strong> : numpy.array</p>
+<blockquote>
+<div><p>Normalized Pointwise Mutual Information for all term-pairs over time.
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</div></blockquote>
+<p><strong>osPMI</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>One-sided Pointwise Mutual Information for all term-pairs over time.        
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.calculate_f_EM">
+<tt class="descclassname">main.</tt><tt class="descname">calculate_f_EM</tt><big>(</big><em>D</em>, <em>a</em><big>)</big><a class="reference internal" href="_modules/main.html#calculate_f_EM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.calculate_f_EM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a vector over time for the number of documents containing one
+or more explanandum terms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>D</strong> : <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.DataCollection</span></tt></p>
+<blockquote>
+<div><p>Contains <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.Paper</span></tt> for each N-gram vector.</p>
+</div></blockquote>
+<p><strong>a</strong> : <tt class="xref py py-class docutils literal"><span class="pre">numpy.array</span></tt></p>
+<blockquote>
+<div><p>Rows are documents, columns are terms.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>f_EM</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>A vector over time for the number of documents containing one or more 
+explanandum terms.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.mc_test">
+<tt class="descclassname">main.</tt><tt class="descname">mc_test</tt><big>(</big><em>a</em>, <em>b</em>, <em>lower</em>, <em>upper</em><big>)</big><a class="reference internal" href="_modules/main.html#mc_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.mc_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a Monto Carlo simulation for cross-correlation of time-series
+<cite>a</cite> and <cite>b</cite>, and generates upper and lower percentiles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a</strong> : numpy.array</p>
+<blockquote>
+<div><p>Time-series data. Must have same shape as <cite>b</cite>.</p>
+</div></blockquote>
+<p><strong>b</strong> : numpy.array</p>
+<blockquote>
+<div><p>Time-series data. Must have same shape as <cite>a</cite>.</p>
+</div></blockquote>
+<p><strong>lower</strong> : float</p>
+<blockquote>
+<div><p>Lower percentile bound for MC test. (e.g. 2.5)</p>
+</div></blockquote>
+<p><strong>upper</strong> : float</p>
+<blockquote>
+<div><p>Upper percentile bound for MC test. (e.g. 97.5)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>low</strong> : numpy.array</p>
+<blockquote>
+<div><p>Time-series threshold for lower percentile.</p>
+</div></blockquote>
+<p><strong>high</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>Time-series threshold for higher percentile.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.ols_em">
+<tt class="descclassname">main.</tt><tt class="descname">ols_em</tt><big>(</big><em>co_f_N</em><big>)</big><a class="reference internal" href="_modules/main.html#ols_em"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.ols_em" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a correlation matrix for explananda terms. (1960 onward)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>co_f_N</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>Normalization of time-variant term co-occurrence matrix over the number
+of documents in the corpus. Shape: ( N_s+N_m, N_s+N_m, T ). Uses the
+diagonal to get normalized frequency values for each term over time.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.perform_crosscorrelation">
+<tt class="descclassname">main.</tt><tt class="descname">perform_crosscorrelation</tt><big>(</big><em>f_es_EM_</em><big>)</big><a class="reference internal" href="_modules/main.html#perform_crosscorrelation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.perform_crosscorrelation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs cross-correlation analysis.</p>
+<ol class="arabic simple">
+<li>Calculates cross-correlation for each term-pair (above the diagonal).</li>
+<li>Performs a Monte Carlo simulation for each term-pair.</li>
+<li>Plots cross-correlation, upper and lower percentiles, and marks
+maxima/minima outside the percentile thresholds.</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_es_EM_</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>Per-document frequency of each explanans term in the explanandum
+sub-corpus, over time, normalized on the number of 
+explanandum-containing papers over time. Shape: ( T, N_s ).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.plot_PMI">
+<tt class="descclassname">main.</tt><tt class="descname">plot_PMI</tt><big>(</big><em>nPMI</em>, <em>osPMI</em><big>)</big><a class="reference internal" href="_modules/main.html#plot_PMI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.plot_PMI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots nPMI and osPMI for all term-pairs over time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>nPMI</strong> : numpy.array</p>
+<blockquote>
+<div><p>Normalized Pointwise Mutual Information for all term-pairs over time.
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</div></blockquote>
+<p><strong>osPMI</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>One-sided Pointwise Mutual Information for all term-pairs over time.        
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.plot_PMI_em">
+<tt class="descclassname">main.</tt><tt class="descname">plot_PMI_em</tt><big>(</big><em>nPMI</em>, <em>osPMI</em><big>)</big><a class="reference internal" href="_modules/main.html#plot_PMI_em"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.plot_PMI_em" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Similar to <a class="reference internal" href="#main.plot_PMI" title="main.plot_PMI"><tt class="xref py py-func docutils literal"><span class="pre">plot_PMI()</span></tt></a> except that only the top half of the matrix</dt>
+<dd>is plotted, and only explananda terms are included.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>nPMI</strong> : numpy.array</p>
+<blockquote class="last">
+<div><blockquote>
+<div><p>Normalized Pointwise Mutual Information for all term-pairs over time.
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>osPMI <span class="classifier-delimiter">:</span> <span class="classifier">numpy.array</span></dt>
+<dd><p class="first last">One-sided Pointwise Mutual Information for all term-pairs over time.        
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.plot_PMI_es">
+<tt class="descclassname">main.</tt><tt class="descname">plot_PMI_es</tt><big>(</big><em>nPMI</em>, <em>osPMI</em><big>)</big><a class="reference internal" href="_modules/main.html#plot_PMI_es"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.plot_PMI_es" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Similar to <a class="reference internal" href="#main.plot_PMI" title="main.plot_PMI"><tt class="xref py py-func docutils literal"><span class="pre">plot_PMI()</span></tt></a> except that only the top half of the matrix</dt>
+<dd>is plotted, and only explanantes terms are included.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>nPMI</strong> : numpy.array</p>
+<blockquote class="last">
+<div><blockquote>
+<div><p>Normalized Pointwise Mutual Information for all term-pairs over time.
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>osPMI <span class="classifier-delimiter">:</span> <span class="classifier">numpy.array</span></dt>
+<dd><p class="first last">One-sided Pointwise Mutual Information for all term-pairs over time.        
+Shape: ( N_m + N_s, N_m + N_s, T ).</p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.plot_f_EM">
+<tt class="descclassname">main.</tt><tt class="descname">plot_f_EM</tt><big>(</big><em>f_EM</em><big>)</big><a class="reference internal" href="_modules/main.html#plot_f_EM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.plot_f_EM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a bar-chart showing the number of documents in each time-slice,
+and the number of EM-responding documents in each time-slice.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.plot_journal_distribution">
+<tt class="descclassname">main.</tt><tt class="descname">plot_journal_distribution</tt><big>(</big><em>D</em><big>)</big><a class="reference internal" href="_modules/main.html#plot_journal_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.plot_journal_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the distribution of papers over journals for the top 20 journals.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>D</strong> : <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.DataCollection</span></tt></p>
+<blockquote class="last">
+<div><p>Contains <tt class="xref py py-class docutils literal"><span class="pre">tethne.classes.Paper</span></tt> for each N-gram vector.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.plot_p_em">
+<tt class="descclassname">main.</tt><tt class="descname">plot_p_em</tt><big>(</big><em>co_f</em><big>)</big><a class="reference internal" href="_modules/main.html#plot_p_em"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.plot_p_em" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the observed probability of each explanandum term in the master corpus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>co_f</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>A time-variant term co-occurrence matrix, shape ( N_s+N_m, N_s+N_m, T ).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="main.plot_p_es_EM">
+<tt class="descclassname">main.</tt><tt class="descname">plot_p_es_EM</tt><big>(</big><em>f_es_EM_</em><big>)</big><a class="reference internal" href="_modules/main.html#plot_p_es_EM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.plot_p_es_EM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the observed probability of each explanans term in the explanandum
+sub-corpus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>f_es_EM</strong> : numpy.array</p>
+<blockquote class="last">
+<div><p>Normalized per-document frequency of es in the EM subcorpus.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Erick Peirson, Guido Caniglia.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
